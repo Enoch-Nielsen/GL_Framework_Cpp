@@ -1,0 +1,18 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": 
+    [
+        {
+            "label": "Build and Run C++ File",
+            "type": "shell",
+            "command": "g++ -c src/*.cpp -o main.o -std=c++17 -Wall -m64 -g -I include && g++ *.o -o bin/main && konsole -e ./bin/main",
+            "group": 
+            {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
