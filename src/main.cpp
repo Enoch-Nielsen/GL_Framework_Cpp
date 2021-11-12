@@ -1,7 +1,7 @@
+#include <Vector.hpp>
 #include <GL/glut.h>
-#include<objects.hpp>
 
-void render()
+void Render()
 {
 	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -19,13 +19,18 @@ void render()
 
 int main(int argc, char** argv)
 {
-	glutInitWindowSize(800, 800);
+	const Vector2i windowSizeA = Vector2i::Builder(250, 500);
+	const Vector2i windowSizeB = Vector2i::Builder(250, 500);
+
+	Vector2i windowSize = windowSizeA + windowSizeB;
+
+	glutInitWindowSize(windowSize.x, windowSize.y);
 	glutInitWindowPosition(0, 0);
 	glutInit(&argc, argv);
 
 	glutCreateWindow("OpenGL Test");
 
-	glutDisplayFunc(render);
+	glutDisplayFunc(Render);
 	glutMainLoop();
 	return 0;
 }
