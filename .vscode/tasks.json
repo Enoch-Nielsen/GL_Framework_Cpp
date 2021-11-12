@@ -7,7 +7,7 @@
         {
             "label": "Build and Run C++ File",
             "type": "shell",
-            "command": "g++ -c src/*.cpp -o main.o -std=c++17 -Wall -m64 -g -I include && g++ *.o -o bin/main && konsole -e ./bin/main",
+            "command": "g++ -c src/*.cpp -o main.o -std=c++17 -Wall -m64 -g -I include && g++ *.o -o bin/main -lOpenGL -lGLU -lglut && ./bin/main",
             "group": 
             {
                 "kind": "build",
