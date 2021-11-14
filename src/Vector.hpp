@@ -1,4 +1,4 @@
-/// A class containing two floats pertaining to X and Y values.
+/*! A class containing two floats pertaining to X and Y values. */
 class Vector2f
 {
 	public:
@@ -11,7 +11,7 @@ class Vector2f
 		y = y_pos;
 	}
 
-	///Takes in two floats pertaing to the X and Y values and returns a Vector2 with the given values.
+	/*!Takes in two floats pertaing to the X and Y values and returns a Vector2 with the given values. */
 	static Vector2f New(float x, float y)	
 	{
 		return Vector2f(x, y);
@@ -65,7 +65,7 @@ public:
 	}
 };
 
-/// A class containing two integers pertaining to X and Y values.
+/* A class containing two integers pertaining to X and Y values. */
 class Vector2i
 {
 	
@@ -79,7 +79,7 @@ public:
 		y = y_pos;	
 	}
 
-	///Takes in two integers pertaining to the X and Y values and returns a Vector2 with the given values.
+	/*! Takes in two integers pertaining to the X and Y values and returns a Vector2 with the given values. */
 	static Vector2i New(int x, int y)
 	{
 		return Vector2i(x, y);

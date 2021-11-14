@@ -1,6 +1,6 @@
 #include <iostream>
 
-void print(std::string s)
+void println(std::string s)
 {
 	std::cout << s << '\n';
 }

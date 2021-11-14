@@ -1,39 +1,43 @@
 #include <Vector.hpp>
-#include <GL/glut.h>
 #include <Console.hpp>
-
-void Render()
-{
-	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	glBegin(GL_QUADS);
-		glColor3f(1.0, 1.0, 0.0);
-		glVertex2f(-0.5f, -0.5f);
-		glVertex2f(0.5f, -0.5f);
-		glVertex2f(0.5f, 0.5f);
-		glVertex2f(-0.5f, 0.5f);
-	glEnd();
-
-	glFlush();
-
-	print("Window Event");
-
-}
+#include <GLFW/glfw3.h>
 
 int main(int argc, char** argv)
 {
-	Vector2i windowSizeA = Vector2i::New(250, 500);
-	Vector2i windowSizeB = Vector2i::New(250, 500);
+	Vector2i window_size = Vector2i::New(500, 500);
 
-	Vector2i windowSize = windowSizeA + windowSizeB;
-
-	glutInitWindowSize(windowSize.x, windowSize.y);
-	glutInitWindowPosition(0, 0);
-	glutInit(&argc, argv);
-
-	glutCreateWindow("OpenGL Test");
+	GLFWwindow *window;
 	
-	glutDisplayFunc(Render);
-	glutMainLoop();
+	if (!glfwInit())
+	{
+		return 1;
+	}
+	
+	window = glfwCreateWindow(window_size.x, window_size.y, "Test Window", NULL, NULL);
+	if (!window)
+	{
+		glfwTerminate();
+		return -1;
+	}
+	
+	glfwMakeContextCurrent(window);
+
+	while(!glfwWindowShouldClose(window))
+	{
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		glBegin(GL_QUADS);
+			glVertex2f(-0.5, 0.5);
+			glVertex2f(0.0, 0.5);
+			glVertex2f(0.0, 0.0);
+			glVertex2f(-0.5, 0.0);
+		glEnd();
+		
+		glfwSwapBuffers(window);
+
+		glfwPollEvents();
+	}
+
+	glfwTerminate();
+	return 0;
 }
