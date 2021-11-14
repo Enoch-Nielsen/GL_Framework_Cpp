@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/enochn/Dropbox/Development/Programming/C++/Template/src"
+                "/home/enochn/Desktop/Development/C++/GL_Framework_Cpp/src"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

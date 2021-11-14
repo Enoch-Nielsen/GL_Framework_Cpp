@@ -1,5 +1,6 @@
 #include <Vector.hpp>
 #include <GL/glut.h>
+#include <Console.hpp>
 
 void Render()
 {
@@ -15,12 +16,15 @@ void Render()
 	glEnd();
 
 	glFlush();
+
+	print("Window Event");
+
 }
 
 int main(int argc, char** argv)
 {
-	const Vector2i windowSizeA = Vector2i::Builder(250, 500);
-	const Vector2i windowSizeB = Vector2i::Builder(250, 500);
+	Vector2i windowSizeA = Vector2i::New(250, 500);
+	Vector2i windowSizeB = Vector2i::New(250, 500);
 
 	Vector2i windowSize = windowSizeA + windowSizeB;
 
@@ -29,8 +33,7 @@ int main(int argc, char** argv)
 	glutInit(&argc, argv);
 
 	glutCreateWindow("OpenGL Test");
-
+	
 	glutDisplayFunc(Render);
 	glutMainLoop();
-	return 0;
 }
